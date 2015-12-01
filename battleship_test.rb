@@ -2,7 +2,9 @@ require 'minitest/autorun'
 require 'minitest/pride'
 
 #Note: This line is going to fail first.
+require './player.rb'
 require './battleship.rb'
+require './ship.rb'
 
 $mock_inputs = []
 def get_user_input
@@ -25,48 +27,48 @@ class BattleshipTest < Minitest::Test
     assert ComputerPlayer
   end
 
-#   def test_02_players_have_inheritance
-#     assert_equal Player, HumanPlayer.superclass
-#     assert_equal Player, ComputerPlayer.superclass
-#   end
-#
-#   def test_03_humans_can_be_named
-#     assert_equal "Alice", HumanPlayer.new("Alice").name
-#   end
-#
-#   def test_04_computers_cannot_be_named
-#     assert_raises(ArgumentError) do
-#       ComputerPlayer.new("The Red Queen")
-#     end
-#   end
-#
-#   def test_05_players_have_default_names
-#     assert_equal "Dave", HumanPlayer.new.name
-#     assert_equal "HAL 9000", ComputerPlayer.new.name
-#   end
-#
-#   def test_06_ship_class_exists
-#     assert Ship
-#   end
-#
-#   def test_07_ship_knows_its_length
-#     ship = Ship.new(4)
-#     assert_equal 4, ship.length
-#   end
-#
-#   def test_08_ship_can_be_placed_across
-#     ship = Ship.new(4)
-#     assert ship.place(2, 1, true)
-#
-#     assert ship.covers?(2, 1)
-#     assert ship.covers?(3, 1)
-#     assert ship.covers?(4, 1)
-#     assert ship.covers?(5, 1)
-#
-#     refute ship.covers?(1, 1)
-#     refute ship.covers?(6, 1)
-#     refute ship.covers?(4, 2)
-#   end
+  def test_02_players_have_inheritance
+    assert_equal Player, HumanPlayer.superclass
+    assert_equal Player, ComputerPlayer.superclass
+  end
+
+  def test_03_humans_can_be_named
+    assert_equal "Alice", HumanPlayer.new("Alice").name
+  end
+
+  def test_04_computers_cannot_be_named
+    assert_raises(ArgumentError) do
+      ComputerPlayer.new("The Red Queen")
+    end
+  end
+
+  def test_05_players_have_default_names
+    assert_equal "Dave", HumanPlayer.new.name
+    assert_equal "HAL 9000", ComputerPlayer.new.name
+  end
+
+  def test_06_ship_class_exists
+    assert Ship
+  end
+
+  def test_07_ship_knows_its_length
+    ship = Ship.new(4)
+    assert_equal 4, ship.length
+  end
+
+  def test_08_ship_can_be_placed_across
+    ship = Ship.new(4)
+    assert ship.place(2, 1, true)
+
+    assert ship.covers?(2, 1)
+    assert ship.covers?(3, 1)
+    assert ship.covers?(4, 1)
+    assert ship.covers?(5, 1)
+
+    refute ship.covers?(1, 1)
+    refute ship.covers?(6, 1)
+    refute ship.covers?(4, 2)
+  end
 #
 #   def test_09_ship_can_be_placed_down
 #     ship = Ship.new(4)
